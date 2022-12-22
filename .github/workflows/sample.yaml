@@ -1,7 +1,7 @@
 name: learn-github-actions
 on:
-  milestone
-    [created]
+  milestone:
+    types: [opened, deleted]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
