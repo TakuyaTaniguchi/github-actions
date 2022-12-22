@@ -1,7 +1,7 @@
 name: learn-github-actions
 on:
   milestone:
-    types: [created,opened, deleted]
+    types: [created,opened,edited,deleted]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -11,4 +11,9 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g bats
-      - run: echo 'hello'
+      - run: echo {github.event.milestone}
+
+
+# マイルストーンのステータスを変更した時
+# 対象者,日付,descriptionの内容を取得する
+# slackに通知するs
