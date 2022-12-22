@@ -1,5 +1,7 @@
 name: learn-github-actions
-on: [push]
+on:
+  milestone
+    [created]
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
@@ -9,4 +11,4 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g bats
-      - run: bats -v
+      - run: echo 'hello'
