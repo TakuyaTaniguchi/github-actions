@@ -12,6 +12,9 @@ jobs:
           node-version: '14'
       - run: npm install -g bats
       - run: echo ${{github.event.milestone.title}}
+      - run: echo ${{github.event.milestone.due_on}}
+      - run: echo ${{github.event.milestone.description}}
+
 
 
 # マイルストーンのステータスを変更した時
