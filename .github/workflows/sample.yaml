@@ -11,8 +11,7 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g bats
-      - run: echo ${on.milestone.types}}
-      - run: echo ${{name}}
+      - run: echo ${{on.milestone.types}}
       - run: echo ${{github.event.milestone.title}}
       - run: echo ${{github.event.milestone.due_on}}
       - run: echo ${{github.event.milestone.description}}
