@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: notification-milestone
 on:
   milestone:
     types: [created,opened,edited,deleted]
@@ -6,10 +6,10 @@ on:
 #   SLACK_BOT_TOKEN: ${{ secrets.BASE_SLACK_NOTIFICATION_GITHUB_DISCUSSIONS_TOKEN }}
 #   slackChannelId: C02AY7BRG1E
 jobs:
-  check-bats-version:
+  notification-milestone:
     runs-on: ubuntu-latest
     steps:
-      - name: Send GitHub Discussion Notification to Slack
+      - name: Send GitHub MileStone Notification to Slack
         uses: slackapi/slack-github-action@v1.21.0
         with:
           channel-id: ${{ env.slackChannelId }}
