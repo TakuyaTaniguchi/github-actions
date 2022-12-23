@@ -15,24 +15,8 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g bats
-      # - uses: slackapi/slack-github-action@v1.21.0
-      #   with:
-      #     channel-id: ${{ env.slackChannelId }}
-      #     payload: |
-      #       {
-      #         "text": "MileStone ${{ github.event.milestone.",
-      #         "blocks": [
-      #           {
-      #             "type": "section",
-      #             "text": {
-      #               "type": "mrkdwn",
-      #               "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-      #             }
-      #           }
-      #         ]
-      #       }
-      - run: echo ${{name}}
-      - run: echo ${{on.milestone.types}}
+      # - run: echo ${{name}}
+      # - run: echo ${{on.milestone.types}}
       - run: echo ${{github.event.milestone.title}}
       - run: echo ${{github.event.milestone.due_on}}
       - run: echo ${{github.event.milestone.description}}
