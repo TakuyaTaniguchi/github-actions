@@ -11,23 +11,15 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g bats
-      - run: echo ${{github.event.action}}:action
-      - run: echo ${{github.event.seder}}:sender
 
-      - run: echo ${{github.event.milestone.sender}}:name
-      - run: echo ${{github.event.milestone.creator.email}}:mail
       - run: echo ${{github.event.milestone.creator.html_url}}:.html_url
       - run: echo ${{github.event.milestone.creator.login}}:login
-
-
-      - run: echo ${{github.event.milestone.creator.name}}:name
-      - run: echo ${{github.event.milestone.creator.id}}:id
-
       - run: echo ${{github.event.milestone.title}}
       - run: echo ${{github.event.milestone.due_on}}
       - run: echo ${{github.event.milestone.description}}
+      - run: echo ${{github.event.milestone.html_url}}
 
 
 # [x] マイルストーンのステータスを変更した時
-# [x] 対象者,日付,descriptionの内容を取得する
+# [x] 名前,タイトル,日付,description,リンク先の内容を取得する
 # slackに通知する
