@@ -11,7 +11,12 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g bats
-      - run: echo ${{github.event.milestone.creator.name}}
+      - run: echo ${{github.event.milestone.sender}}:name
+      - run: echo ${{github.event.milestone.creator}}:creator
+
+      - run: echo ${{github.event.milestone.creator.name}}:name
+      - run: echo ${{github.event.milestone.creator.id}}:id
+
       - run: echo ${{github.event.milestone.title}}
       - run: echo ${{github.event.milestone.due_on}}
       - run: echo ${{github.event.milestone.description}}
