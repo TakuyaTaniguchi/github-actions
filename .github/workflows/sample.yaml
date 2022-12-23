@@ -11,15 +11,29 @@ jobs:
         with:
           node-version: '14'
       - run: npm install -g bats
+          payload: |
+            {
+              "attachments": [
+                {
+                  "mrkdwn_in": ["pretext", "text"],
+                  "title": "${{github.event.milestone.title}}/${{github.event.milestone.due_on}}",
+                  "title_link": "${{github.event.milestone.html_url}}",
+                  "text": ${{ toJSON(github.event.milestone.description) }}
+                }
+              ]
+            }
+      
 
-      - run: echo ${{github.event.milestone.creator.html_url}}:.html_url
-      - run: echo ${{github.event.milestone.creator.login}}:login
-      - run: echo ${{github.event.milestone.title}}
-      - run: echo ${{github.event.milestone.due_on}}
-      - run: echo ${{github.event.milestone.description}}
-      - run: echo ${{github.event.milestone.html_url}}
+
 
 
 # [x] マイルストーンのステータスを変更した時
 # [x] 名前,タイトル,日付,description,リンク先の内容を取得する
+# - run: echo ${{github.event.milestone.creator.html_url}}:.html_url
+# - run: echo ${{github.event.milestone.creator.login}}:login
+# - run: echo ${{github.event.milestone.title}}
+# - run: echo ${{github.event.milestone.due_on}}
+# - run: echo ${{github.event.milestone.description}}
 # slackに通知する
+
+
