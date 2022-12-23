@@ -2,15 +2,36 @@ name: learn-github-actions
 on:
   milestone:
     types: [created,opened,edited,deleted]
+# env:
+#   SLACK_BOT_TOKEN: ${{ secrets.BASE_SLACK_NOTIFICATION_GITHUB_DISCUSSIONS_TOKEN }}
+#   slackChannelId: C02AY7BRG1E
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-      - run: npm install -g bats
+      - name: Send GitHub MileStone Notification
+      # - uses: actions/checkout@v3
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '14'
+      # - uses: slackapi/slack-github-action@v1.21.0
+      #   with:
+      #     channel-id: ${{ env.slackChannelId }}
+      #     payload: |
+      #       {
+      #         "text": "MileStone ${{ github.event.milestone.",
+      #         "blocks": [
+      #           {
+      #             "type": "section",
+      #             "text": {
+      #               "type": "mrkdwn",
+      #               "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+      #             }
+      #           }
+      #         ]
+      #       }
+      - run: echo ${{name}}
+      - run: echo ${{on.milestone.types}}
       - run: echo ${{github.event.milestone.title}}
       - run: echo ${{github.event.milestone.due_on}}
       - run: echo ${{github.event.milestone.description}}
