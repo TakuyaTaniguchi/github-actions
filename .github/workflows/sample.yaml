@@ -15,9 +15,9 @@ jobs:
       - run: echo ${{github.event.seder}}:sender
 
       - run: echo ${{github.event.milestone.sender}}:name
-      - run: echo ${{github.event.milestone.creator.email}}:creator
-      - run: echo ${{github.event.milestone.creator.html_url}}:creator
-      - run: echo ${{github.event.milestone.creator.login}}:creator
+      - run: echo ${{github.event.milestone.creator.email}}:mail
+      - run: echo ${{github.event.milestone.creator.html_url}}:.html_url
+      - run: echo ${{github.event.milestone.creator.login}}:login
 
 
       - run: echo ${{github.event.milestone.creator.name}}:name
